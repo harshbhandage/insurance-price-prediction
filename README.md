@@ -63,10 +63,6 @@ An interactive dashboard was created using Power BI to showcase:
 
 ---
 
-<pre lang="markdown"><code> ## 📁 Project Structure ``` insurance-price-prediction/ ├── data/ │ ├── insurance.csv # Raw dataset │ └── insurance_predictions_all.xlsx # Output predictions ├── dashboard/ │ └── insurance_dashboard.pbix # Power BI dashboard ├── visuals/ │ └── Dashboard_screenshot.png # Dashboard image ├── insurance.ipynb # Jupyter Notebook (ML model) ├── README.md # Project documentation └── .gitignore # Ignored files & folders ``` </code></pre>
-
----
-
 ## 📌 Dataset Description
 
 The dataset `insurance.csv` includes the following columns:
