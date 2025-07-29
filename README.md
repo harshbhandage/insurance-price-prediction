@@ -1,73 +1,85 @@
 # 🏥 Health Insurance Price Prediction
 
-This project uses machine learning to predict health insurance charges based on personal attributes like age, BMI, and smoking status. It includes a Power BI dashboard for data visualization and model performance insights.
+This project leverages machine learning and data visualization to accurately predict health insurance charges based on customer demographics and habits. It combines a predictive regression model built in Python with an interactive Power BI dashboard for deeper analysis and reporting.
 
 ---
 
-## 📊 Dashboard Overview
+## 📌 Project Objective
+
+The goal of this project is to develop a predictive model that estimates the medical insurance cost for individuals based on factors such as age, BMI, smoking status, and more. Understanding these cost drivers can help both insurance providers and policyholders make informed decisions.
+
+---
+
+## ⚙️ Tech Stack
+
+- **Python** (Data Processing & Modeling)
+  - `pandas`, `numpy`, `matplotlib`, `seaborn`
+  - `scikit-learn` for machine learning
+- **Machine Learning Algorithm**
+  - `RandomForestRegressor`
+- **Visualization Tool**
+  - `Power BI` for interactive dashboards
+- **Jupyter Notebook** for experimentation and model training
+
+---
+
+## 🤖 Machine Learning Workflow
+
+The following steps were performed in the notebook (`insurance.ipynb`):
+
+1. **Data Cleaning**
+   - Handled null values (if any)
+   - Converted categorical features (like smoker, sex, region) to numerical using `LabelEncoder`
+2. **Exploratory Data Analysis**
+   - Visualized age, BMI, and charges distribution
+   - Correlation heatmap between features
+3. **Feature Engineering**
+   - Created dummy variables for multi-class categorical features
+   - Normalized feature scales (if needed)
+4. **Model Training**
+   - Used `RandomForestRegressor` due to its robustness and accuracy for regression tasks
+5. **Model Evaluation**
+   - **R² Score**: 0.93
+   - **RMSE**: \$3,290
+   - Created prediction outputs to compare with actual charges
+6. **Exported Predictions**
+   - Saved the predictions in `insurance_predictions_all.xlsx`
+
+---
+
+## 📊 Dashboard Overview (Power BI)
+
+An interactive dashboard was created using Power BI to showcase:
+
+- 📈 Actual vs. Predicted Charges (scatter plot)
+- 📊 Breakdown by BMI Category
+- 🚬 Impact of Smoking Status on Costs
+- 🧓 Age vs Charges Trend Line
+- 👥 Total Users: 1338
 
 ![Dashboard Screenshot](visuals/Dashboard_screenshot.png)
 
-**Highlights:**
-- **R² Score**: 0.93
-- **RMSE**: $3.29K
-- **Total Users**: 1338
-- Predictive insights across **age**, **BMI groups**, and **smoking status**
+> File: `dashboard/insurance_dashboard.pbix`
 
 ---
 
-## 📁 Project Structure
-
-insurance-price-prediction/
-├── data/
-│ ├── insurance.csv # Raw dataset
-│ └── insurance_predictions_all.xlsx# Model predictions
-├── visuals/
-│ └── Dashboard_screenshot.png # Power BI screenshot
-├── dashboard/
-│ └── insurance_dashboard.pbix # Power BI file
-├── insurance.ipynb # Jupyter Notebook (ML model)
-├── README.md # This file
-└── .gitignore
+<pre lang="markdown"><code> ## 📁 Project Structure ``` insurance-price-prediction/ ├── data/ │ ├── insurance.csv # Raw dataset │ └── insurance_predictions_all.xlsx # Output predictions ├── dashboard/ │ └── insurance_dashboard.pbix # Power BI dashboard ├── visuals/ │ └── Dashboard_screenshot.png # Dashboard image ├── insurance.ipynb # Jupyter Notebook (ML model) ├── README.md # Project documentation └── .gitignore # Ignored files & folders ``` </code></pre>
 
 ---
 
-## 🔍 Dataset
+## 📌 Dataset Description
 
-The dataset `insurance.csv` includes:
-- `age`: Age of the individual
-- `sex`: Gender
-- `bmi`: Body Mass Index
-- `children`: Number of children
-- `smoker`: Smoking status
-- `region`: Residential region
-- `charges`: Medical costs billed by health insurance
+The dataset `insurance.csv` includes the following columns:
 
----
-
-## 🤖 Machine Learning
-
-Model built using **scikit-learn** with the following steps:
-
-- Data Cleaning and Exploration
-- Feature Engineering
-- Train-test Split
-- Model Training (Linear Regression / Random Forest / etc.)
-- Evaluation Metrics: `R²`, `RMSE`, residual analysis
-
-📌 Best model achieved:
-- **R² Score**: 0.93
-- **RMSE**: \$3.29K
+| Feature    | Description                        |
+|------------|------------------------------------|
+| `age`      | Age of the individual              |
+| `sex`      | Gender (`male`, `female`)          |
+| `bmi`      | Body Mass Index                    |
+| `children`| Number of children covered          |
+| `smoker`   | Smoking status (`yes`/`no`)        |
+| `region`   | Residential region in the U.S.     |
+| `charges`  | Target: Medical insurance charges  |
 
 ---
 
-## 📈 Power BI Dashboard
-
-Power BI visualizes:
-- Actual vs. Predicted charges by BMI, Age, Smoking status
-- Distribution and trends
-- Performance summary
-
-🗂 File: `dashboard/insurance_dashboard.pbix`
-
----
